@@ -642,7 +642,10 @@
                             document.getElementById('loading-section').style.display = 'none';
                             document.getElementById('user-info-section').style.display = 'block';
                           };
-                          document.getElementById('user-profile-pic').src = data.avatar;
+                          document.getElementById('user-profile-pic').src =
+  'https://api-insta-two.vercel.app/api/image?url=' +
+  encodeURIComponent(data.avatar);
+
                           document.getElementById('user-name').textContent = data.name || 'Nome não disponível';
 
                         }
