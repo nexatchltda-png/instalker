@@ -771,7 +771,7 @@
                                     if (usernameFromUrl) {
                                         fetchUserProfile(usernameFromUrl).then(profileData => {
                                             if (profileData) {
-                                                document.getElementById('profile-pic').src = 'https://api-insta-two.vercel.app/api/image?url=' + encodeURIComponent(profileData.profile_pic_url);
+                                                document.getElementById('profile-pic').src = 'https://api-insta-two.vercel.app/api/image?url=' + encodeURIComponent(profileData.avatar);
                                                 document.getElementById('profile-username').textContent = '@' + profileData.username;
                                             }
                                         });
