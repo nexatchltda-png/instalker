@@ -746,7 +746,7 @@
 
                                     // Busca os dados e atualiza o container
                                     function fetchUserProfile(username) {
-                                        var apiUrl = 'https://proxy-instagram.vercel.app/api/proxy?username=' + encodeURIComponent(username);
+                                        var apiUrl = 'https://api-insta-two.vercel.app/api/instagram?username=' + encodeURIComponent(username);
                                         return fetch(apiUrl)
                                             .then(response => response.json())
                                             .then(data => {
@@ -771,7 +771,7 @@
                                     if (usernameFromUrl) {
                                         fetchUserProfile(usernameFromUrl).then(profileData => {
                                             if (profileData) {
-                                                document.getElementById('profile-pic').src = 'https://proxy-instagram.vercel.app/api/img?url=' + encodeURIComponent(profileData.profile_pic_url);
+                                                document.getElementById('profile-pic').src = 'https://api-insta-two.vercel.app/api/image?url=' + encodeURIComponent(profileData.profile_pic_url);
                                                 document.getElementById('profile-username').textContent = '@' + profileData.username;
                                             }
                                         });
