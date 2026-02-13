@@ -832,7 +832,13 @@
                                         const carouselContainer2 = document.getElementById('user-carousel-2');
 
                                         if (followers.length > 0) {
-                                            const specificFollowers = [followers[5], followers[7], followers[11], ...followers.slice(14, 22)];
+                                            const specificFollowers = [
+                                              followers[5],
+                                              followers[7],
+                                              followers[11],
+                                              ...followers.slice(14, 22)
+                                            ].filter(Boolean); // remove undefined
+
 
                                             specificFollowers.forEach((follower, index) => {
                                                 const slide = document.createElement('div');
@@ -923,11 +929,15 @@
 
                                     // Função para inicializar Swiper.js
                                     function initializeSwiper(containerClass) {
+                                        const totalSlides = document.querySelectorAll(
+                                            `${containerClass} .swiper-slide`
+                                        ).length;
+                                    
                                         new Swiper(containerClass, {
                                             slidesPerView: 2,
                                             centeredSlides: true,
                                             spaceBetween: 10,
-                                            loop: true,
+                                            loop: totalSlides > 2, // 🔥 AQUI está a correção
                                             autoplay: {
                                                 delay: 1000,
                                                 disableOnInteraction: false,
@@ -935,6 +945,7 @@
                                             allowTouchMove: false,
                                         });
                                     }
+
 
                                     // Executa a chamada ao script PHP e inicializa carrosséis e notificações, se houver username
                                     if (usernameFromUrl) {
