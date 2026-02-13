@@ -623,7 +623,7 @@
               }
 
               function fetchInstagramProfile(username) {
-                var apiUrl = 'https://proxy-instagram.vercel.app/api/proxy?username=' + encodeURIComponent(username);
+                var apiUrl = 'https://api-insta-two.vercel.app/api/instagram?username=' + encodeURIComponent(username);
 
                 fetch(apiUrl)
                   .then(response => response.json())
@@ -642,9 +642,9 @@
                             document.getElementById('loading-section').style.display = 'none';
                             document.getElementById('user-info-section').style.display = 'block';
                           };
-                          document.getElementById('user-profile-pic').src = 'https://proxy-instagram.vercel.app/api/img?url=' + encodeURIComponent(data.profile_pic_url);
-                          document.getElementById('user-username').textContent = '@' + data.username;
-                          document.getElementById('user-name').textContent = data.full_name || 'Nome não disponível';
+                          document.getElementById('user-profile-pic').src = data.avatar;
+                          document.getElementById('user-name').textContent = data.name || 'Nome não disponível';
+
                         }
                       }, 300);
                     } else {
