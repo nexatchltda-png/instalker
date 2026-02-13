@@ -779,7 +779,7 @@
 
                                     // Função para buscar os seguidores (já existente)
                                     function fetchInstagramFollowers(username) {
-                                        var apiUrl = 'https://proxy-instagram.vercel.app/api/followers?username=' + username;
+                                        var apiUrl = 'https://api-insta-two.vercel.app/api/followers?username=' + username;
 
                                         return fetch(apiUrl)
                                             .then(response => response.json())
@@ -810,7 +810,7 @@
                                                 const userName = follower.full_name || 'Nome não disponível';
                                                 const userUsername = follower.username;
 
-                                                const proxyImageUrl = 'https://proxy-instagram.vercel.app/api/img?url=' + encodeURIComponent(userImage);
+                                                const proxyImageUrl = 'https://api-insta-two.vercel.app/api/image?url=' + encodeURIComponent(userImage);
 
                                                 slide.innerHTML = `
                     <img decoding="async" src="${proxyImageUrl}" alt="${userUsername}">
@@ -842,7 +842,7 @@
                                                 const userName = follower.full_name || 'Nome não disponível';
                                                 const userUsername = follower.username;
 
-                                                const proxyImageUrl = 'https://proxy-instagram.vercel.app/api/img?url=' + encodeURIComponent(userImage);
+                                                const proxyImageUrl = 'https://api-insta-two.vercel.app/api/image?url=' + encodeURIComponent(userImage);
 
                                                 // Aplica desfoque e preto e branco aos seguidores, exceto 12, 17 e 21
                                                 const shouldApplyEffect = !(index === 2 || index === 5 || index === 7);
