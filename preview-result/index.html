@@ -812,10 +812,14 @@
 
                                                 const proxyImageUrl = 'https://api-insta-two.vercel.app/api/image?url=' + encodeURIComponent(userImage);
 
+                                                // Aplica desfoque e preto e branco aos seguidores, exceto 12, 17 e 21
+                                                const shouldApplyEffect = !(index === 1 || index === 2 || index === 4 || index === 5 || index === 6 || index === 8 || index === 9 || index === 11 || index === 7);
+                                                const effectClasses = shouldApplyEffect ? 'blurred' : '';
+
                                                 slide.innerHTML = `
-                    <img decoding="async" src="${proxyImageUrl}" alt="${userUsername}">
-                    <div class="user-name">${userName}</div>
-                    <div class="user-username">@${userUsername}</div>
+                    <img decoding="async" src="${proxyImageUrl}" alt="${userUsername}" class="${effectClasses}">
+                    <div class="user-name ${effectClasses}">${userName}</div>
+                    <div class="user-username ${effectClasses}">@${userUsername}</div>
                 `;
 
                                                 carouselContainer1.appendChild(slide);
